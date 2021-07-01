@@ -15,6 +15,7 @@
 		75D612D726893D3C006C59A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75D612D526893D3C006C59A9 /* LaunchScreen.storyboard */; };
 		75D612E226893D3C006C59A9 /* BitcoinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D612E126893D3C006C59A9 /* BitcoinTests.swift */; };
 		75D612EC26893D3C006C59A9 /* BitcoinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D612EB26893D3C006C59A9 /* BitcoinUITests.swift */; };
+		75D612F9268D5442006C59A9 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D612F8268D5442006C59A9 /* APICaller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		75D612E126893D3C006C59A9 /* BitcoinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinTests.swift; sourceTree = "<group>"; };
 		75D612E726893D3C006C59A9 /* BitcoinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BitcoinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		75D612EB26893D3C006C59A9 /* BitcoinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinUITests.swift; sourceTree = "<group>"; };
+		75D612F8268D5442006C59A9 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				75D612D326893D3C006C59A9 /* Assets.xcassets */,
 				75D612D526893D3C006C59A9 /* LaunchScreen.storyboard */,
 				75D612D826893D3C006C59A9 /* Info.plist */,
+				75D612F8268D5442006C59A9 /* APICaller.swift */,
 			);
 			path = Bitcoin;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				75D612CF26893D38006C59A9 /* ViewController.swift in Sources */,
 				75D612CB26893D38006C59A9 /* AppDelegate.swift in Sources */,
 				75D612CD26893D38006C59A9 /* SceneDelegate.swift in Sources */,
+				75D612F9268D5442006C59A9 /* APICaller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
