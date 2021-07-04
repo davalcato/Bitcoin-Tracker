@@ -17,6 +17,15 @@ struct DogeCoinData: Codable {
     let id: Int
     let name: String
     let symbol: String
+    let date_added: String
+    let tags: [String]
+    let total_supply: Float
+    let quote: [String: Quote]
+}
+
+struct Quote: Codable {
+    let price: Float
+    let volume_24h: Float
 }
 
 /*
@@ -28,13 +37,7 @@ struct DogeCoinData: Codable {
         "slug": "dogecoin",
         "num_market_pairs": 354,
         "date_added": "2013-12-15T00:00.000Z",
-        "tags": [
-            "mineable",
-            "pow",
-            "scrypt",
-            "memes",
-            "payments"
-        ],
+        
         "max_supply": null,
         "circulating_supply": 129503221027.63477,
         "total_supply": 129503221027.63477,

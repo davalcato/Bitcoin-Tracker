@@ -63,8 +63,8 @@ final class APICaller {
             }
             // Convert data to object
             do {
-                let json = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
-                print("\n\n \(json)")
+//                let json = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
+//                print("\n\n \(json)")
                 
                 let response = try JSONDecoder().decode(APIResponse.self, from: data)
                 
