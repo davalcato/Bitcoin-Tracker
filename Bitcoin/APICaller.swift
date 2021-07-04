@@ -15,7 +15,7 @@ final class APICaller {
         // Constants
         struct Constants {
             static let apikey = "8bccdb3f-7970-4cd0-8896-96e7500a02cd"
-            static let apikeyHeader = "CMC_PRO_API_KEY"
+            static let apikeyHeader = "X-CMC_PRO_API_KEY"
             static let baseUrl = "https://pro-api.coinmarketcap.com/v1/"
             static let doge = "dogecoin"
             static let endpoint = "cryptocurrency/quotes/latest"
