@@ -28,9 +28,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "DogeCoin"
-        view.addSubview(tableView)
-        tableView.delegate = self
-        tableView.dataSource = self
+        setUpTable()
         
     }
     
@@ -38,6 +36,42 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLayoutSubviews() {
         // tableView frame
         tableView.frame = view.bounds
+        // Show icon
+        createTableHeader()
+    }
+    
+    private func createTableHeader() {
+        // Header UIView
+        let header = UIView(frame: CGRect(x: 0,
+                                          y: 0,
+                                          width: view.frame.size.width,
+                                          height: view.frame.size.width))
+        // No overflow
+        header.clipsToBounds = true
+        // Image view coin logo
+        let imageView = UIImageView(image: UIImage(named: "dogecoin"))
+        imageView.contentMode = .scaleAspectFit
+        // Frame imageView
+        let size: CGFloat = view.frame.size.width/2
+        // horizonally centered
+        imageView.frame = CGRect(x: (view.frame.size.width-size)/2,
+                                 y: 10,
+                                 width: size,
+                                 height: size)
+        
+        // add image to header
+        header.addSubview(imageView)
+        // Assigned to the header 
+        tableView.tableHeaderView = header
+        
+    }
+    
+    // Private func
+    private func setUpTable() {
+        view.addSubview(tableView)
+        tableView.delegate = self
+        tableView.dataSource = self
+        
     }
     
     // Required methods
