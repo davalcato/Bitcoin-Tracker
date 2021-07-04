@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7532A3D92692211400B6E960 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7532A3D82692211400B6E960 /* Models.swift */; };
 		75D612CB26893D38006C59A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D612CA26893D38006C59A9 /* AppDelegate.swift */; };
 		75D612CD26893D38006C59A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D612CC26893D38006C59A9 /* SceneDelegate.swift */; };
 		75D612CF26893D38006C59A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D612CE26893D38006C59A9 /* ViewController.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7532A3D82692211400B6E960 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		75D612C726893D38006C59A9 /* Bitcoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bitcoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75D612CA26893D38006C59A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75D612CC26893D38006C59A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,11 +104,12 @@
 				75D612CA26893D38006C59A9 /* AppDelegate.swift */,
 				75D612CC26893D38006C59A9 /* SceneDelegate.swift */,
 				75D612CE26893D38006C59A9 /* ViewController.swift */,
+				75D612F8268D5442006C59A9 /* APICaller.swift */,
+				7532A3D82692211400B6E960 /* Models.swift */,
 				75D612D026893D38006C59A9 /* Main.storyboard */,
 				75D612D326893D3C006C59A9 /* Assets.xcassets */,
 				75D612D526893D3C006C59A9 /* LaunchScreen.storyboard */,
 				75D612D826893D3C006C59A9 /* Info.plist */,
-				75D612F8268D5442006C59A9 /* APICaller.swift */,
 			);
 			path = Bitcoin;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				75D612CB26893D38006C59A9 /* AppDelegate.swift in Sources */,
 				75D612CD26893D38006C59A9 /* SceneDelegate.swift in Sources */,
 				75D612F9268D5442006C59A9 /* APICaller.swift in Sources */,
+				7532A3D92692211400B6E960 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

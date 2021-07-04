@@ -1,0 +1,74 @@
+//
+//  Models.swift
+//  Bitcoin
+//
+//  Created by Daval Cato on 7/4/21.
+//
+
+import Foundation
+
+struct APIResponse: Codable {
+    // Sub data dictionary
+    let data: [Int: DogeCoinData]
+}
+
+struct DogeCoinData: Codable {
+    // DogeCoinData has id
+    let id: Int
+    let name: String
+    let symbol: String
+}
+
+/*
+    "data": {
+    "74":   {
+        "id": 74,
+        "name": "Dogecoin",
+        "symbol": "DOGE",
+        "slug": "dogecoin",
+        "num_market_pairs": 354,
+        "date_added": "2013-12-15T00:00.000Z",
+        "tags": [
+            "mineable",
+            "pow",
+            "scrypt",
+            "memes",
+            "payments"
+        ],
+        "max_supply": null,
+        "circulating_supply": 129503221027.63477,
+        "total_supply": 129503221027.63477,
+        "is_active": 1,
+        "platform": null,
+        "cmc_rank": 4,
+        "is_flat": 0,
+        "last_updated": "2021-05-07T12:14:03.000Z",
+        "quote": {
+            "USD": {
+                "price": 0.61619544965745,
+                "volume_24": 21974614001.497993,
+                "percent_change_1h": 0.29442118,
+                "percent_change_24": 0.61952816,
+                "percent_change_7d": 98.00590192,
+                "percent_change_30d": 961.78296031,
+                "percent_change_60d": 1013.12444989,
+                "percent_change_90d": 1147.3752612,
+                "market_cap": 79799295513.21153,
+                "last_updated": "2021-05-07T12:14:03.000Z"
+            }
+        }
+    }
+ 
+ */
+
+
+
+
+
+
+
+
+
+
+
+
