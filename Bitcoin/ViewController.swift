@@ -24,13 +24,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         return table
     }()
-
+    // Dogecoin data
+    private var data: DogeCoinData?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "DogeCoin"
         // Call API
         fetchData()
-        
     }
     
     // Override viewdidlayOut
@@ -41,14 +42,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     private func fetchData() {
-        APICaller.shared.getDogeCoinData { result in
+        APICaller.shared.getDogeCoinData { [weak self] result in
             switch result {
             case .success(let data):
-                print("Success: \(data)")
+                self?.data = data
+                
+                // Main thread update tableview create view model
+                DispatchQueue.main.async {
+                    // Perform setUpViewModel
+                    self?.setUpViewModels()
+                }
+//                print("Success: \(data)")
             case .failure(let error):
                 print(error)
             }
         }
+    }
+    private func setUpViewModels() {
+        // Call createTableHeader
+        setUpTable()
+        
     }
     
     // Private func
@@ -60,6 +73,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     private func createTableHeader() {
+        guard let price = data?.quote["USD"]?.price else {
+            // Make sure we have price for label
+            return
+            
+        }
+        
+        
         // Header UIView
         let header = UIView(frame: CGRect(x: 0,
                                           y: 0,
@@ -80,6 +100,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         // add image to header
         header.addSubview(imageView)
+        
+        // Price label
+        let label = UILabel()
+        label.text = "\(price)"
+        label.textAlignment = .center
+        label.font = .systemFont(ofSize: 22, weight: .medium)
+        label.frame = CGRect(
+            x: 10,
+            y: 20+size,
+            width: view.frame.size.width-20,
+            height: 120)
+        header.addSubview(label)
+        
+        
         // Assigned to the header
         tableView.tableHeaderView = header
         
