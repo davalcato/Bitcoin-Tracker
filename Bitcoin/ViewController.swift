@@ -21,10 +21,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Cells have a background with style grouped
         let table = UITableView(frame: .zero, style: .grouped)
         // Register
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        table.register(DogeTableViewCell.self, forCellReuseIdentifier: DogeTableViewCell.identifier)
         
         return table
     }()
+    
+    // Array of viewModels
+    private var viewModels = [DogeTableViewCellViewModel]()
     
     // Formatter
     static let formatter: NumberFormatter = {
@@ -71,8 +74,37 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     private func setUpViewModels() {
+        guard let model = data else {
+            
+            return
+        }
         // Call createTableHeader
         setUpTable()
+        
+        // Setup viewModels
+        viewModels = [
+            DogeTableViewCellViewModel(
+                title: "Name",
+                value: model.name
+            ),
+            DogeTableViewCellViewModel(
+                title: "Symbol",
+                value: model.symbol
+            ),
+            DogeTableViewCellViewModel(
+                title: "Identifier",
+                value: String(model.id)
+            ),
+            DogeTableViewCellViewModel(
+                title: "Date Added",
+                value: model.date_added
+            ),
+            DogeTableViewCellViewModel(
+                title: "Total Supply",
+                value: String(model.total_supply)
+            ),
+            
+        ]
         
     }
     
@@ -142,13 +174,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // Table
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        // Drive the numbers of cells
+        return viewModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "Dogecoin"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: DogeTableViewCell.identifier, for: indexPath
+           
+            // Down cast
+        ) as? DogeTableViewCell else {
+            fatalError()
+            
+        }
         
+        cell.configure(with: viewModels[indexPath.row])
         return cell
     }
 
