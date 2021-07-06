@@ -18,7 +18,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // Create tableview fetch data
     private let tableView: UITableView = {
-        let table = UITableView()
+        // Cells have a background with style grouped
+        let table = UITableView(frame: .zero, style: .grouped)
         // Register
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
@@ -95,7 +96,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let header = UIView(frame: CGRect(x: 0,
                                           y: 0,
                                           width: view.frame.size.width,
-                                          height: view.frame.size.width))
+                                          height: view.frame.size.width/1.5))
         // No overflow
         header.clipsToBounds = true
         // Image view coin logo
@@ -114,6 +115,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         // Price label
         let number = NSNumber(value: price)
+        
+        // Capital Self because its static
         let string = Self.formatter.string(from: number)
         
         
@@ -123,12 +126,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let label = UILabel()
         label.text = string
         label.textAlignment = .center
-        label.font = .systemFont(ofSize: 22, weight: .medium)
+        label.font = .systemFont(ofSize: 42, weight: .medium)
         label.frame = CGRect(
             x: 10,
             y: 20+size,
             width: view.frame.size.width-20,
-            height: 120)
+            height: 200)
         header.addSubview(label)
         
         
