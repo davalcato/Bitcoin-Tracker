@@ -24,6 +24,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         return table
     }()
+    
+    // Formatter
+    static let formatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.locale = .current
+        formatter.numberStyle = .currency
+        
+        return formatter
+        
+    }()
+    
     // Dogecoin data
     private var data: DogeCoinData?
     
@@ -102,8 +113,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         header.addSubview(imageView)
         
         // Price label
+        let number = NSNumber(value: price)
+        let string = Self.formatter.string(from: number)
+        
+        
+        // Format Price
+        
+        
         let label = UILabel()
-        label.text = "\(price)"
+        label.text = string
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 22, weight: .medium)
         label.frame = CGRect(
