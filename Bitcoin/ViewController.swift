@@ -39,6 +39,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }()
     
+    // Date Formatter
+    static let dateFormatter:ISO8601DateFormatter = {
+        // Currently local
+        let formatter = ISO8601DateFormatter()
+        // Correct date
+        formatter.formatOptions = .withFractionalSeconds
+        formatter.timeZone = .current
+        
+        return formatter
+    }()
+    
+    //  Formatter friendly date
+    static let friendlyDateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        
+        return formatter
+        
+    }()
+    
     // Dogecoin data
     private var data: DogeCoinData?
     
@@ -78,8 +98,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             return
         }
-        // Call createTableHeader
-        setUpTable()
+        
+        // Create a date
+        guard let date = Self.dateFormatter.date(from: model.date_added) else {
+            
+            return
+        }
         
         // Setup viewModels
         viewModels = [
@@ -97,15 +121,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             ),
             DogeTableViewCellViewModel(
                 title: "Date Added",
-                value: model.date_added
+                value: Self.friendlyDateFormatter.string(from: date) ?? "N?A"
+            
             ),
             DogeTableViewCellViewModel(
                 title: "Total Supply",
+                // Converted into a string
                 value: String(model.total_supply)
             ),
             
         ]
-        
+        // SetupTable after viewModel created
+        setUpTable()
     }
     
     // Private func
